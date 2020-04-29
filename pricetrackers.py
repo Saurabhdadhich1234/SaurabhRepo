@@ -25,12 +25,12 @@ def send_mail():
     server.ehlo()
     server.starttls()
     server.ehlo()
-    server.login('saurabhdadhich45678@gmail.com','saurabh7044')
+    server.login('example@gmail.com','****your_password****')
     subject="Price fell down"
     body='Check the amazon link  https://www.amazon.in/dp/B00HK8QV44/ref=cm_sw_r_apa_i_yGtQEb30RJAR4'
     
     msg=f"Subject: {subject}\n\n{body}"
-    server.sendmail('saurabhdadhich45678@gmail.com','saurabhdadhich4567@gmail.com',msg)
+    server.sendmail('example8@gmail.com','example@gmail.com',msg)
     print("Email has been sent")
     server.quit()
 while(True):
