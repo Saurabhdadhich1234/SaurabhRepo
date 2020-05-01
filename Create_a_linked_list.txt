@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+  int data;
+  struct node *next;
+
+
+};
+
+struct node *head, *tail = NULL;
+void
+addnode (int data)
+{
+  struct node *newnode = (struct node *) malloc (sizeof (struct node));
+  newnode->data = data;
+  newnode->next = NULL;
+
+  if (head == NULL)
+    {
+      head = newnode;
+      tail = newnode;
+    }
+  else
+    {
+      tail->next = newnode;
+      tail = newnode;
+    }
+}
+
+void
+display ()
+{
+    printf("The nodes are\n");
+  struct node *current;
+  current = head;
+
+  if (head == NULL)
+    {
+      printf ("List is empty/n");
+    }
+  else
+    {
+      while (current != NULL)
+	{
+	  printf ("%d->", current->data);
+	  current = current->next;
+	}
+	printf("NULL");
+    }
+}
+
+int
+main ()
+{
+  printf ("Enter the number of nodes\n");
+  int n;
+  scanf ("%d", &n);
+  int shift = 0;
+  for (int i = 0; i < n; i++)
+    {
+      printf ("Enter the node (%d) value \n", (i + 1));
+      scanf ("%d", &shift);
+      addnode (shift);
+      shift = 0;
+    }
+  display ();
+  return 0;
+}
